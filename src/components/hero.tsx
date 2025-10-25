@@ -12,7 +12,8 @@ export default function Hero({ waitlistPeople }: { waitlistPeople: number }) {
   const [isSuccess, setIsSuccess] = useState(false);
 
   return (
-    <div className="flex flex-col items-center justify-center px-4">
+    <div className="flex flex-col items-center justify-start px-4">
+
       {/* ===== Availability Badge ===== */}
       <div className="flex flex-col items-center justify-center gap-6 mb-6">
         <div className="flex items-center gap-3 rounded-full border border-border px-4 py-1 relative">
