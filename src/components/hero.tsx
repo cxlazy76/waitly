@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { useMemo, useState } from "react";
 import Countdown from "./countdown";
 import People from "./people";
@@ -38,20 +40,25 @@ export default function Hero({ waitlistPeople }: { waitlistPeople: number }) {
       </div>
 
       {/* ===== Image Cards Section ===== */}
-      <div className="mt-8 flex flex-wrap justify-center items-start gap-4 sm:gap-5 md:gap-6 w-full max-w-6xl px-2">
-        {["one", "two", "three", "four", "five"].map((img, i) => (
-          <div
-            key={i}
-            className="rounded-2xl overflow-hidden border shadow-sm bg-white hover:shadow-md transition w-32 sm:w-36 md:w-40 lg:w-44 aspect-[3/4] flex-shrink-0"
-          >
-            <img
-              src={`/gallery/${img}.jpg`}
-              alt={`Example ${i + 1}`}
-              className="w-full h-full object-cover"
-            />
-          </div>
-        ))}
-      </div>
+{/* ===== Image Cards Section ===== */}
+<div className="mt-8 flex flex-wrap justify-center items-start gap-4 sm:gap-5 md:gap-6 w-full max-w-6xl px-2">
+  {["one", "two", "three", "four", "five"].map((img, i) => (
+    <div
+      key={i}
+      className="rounded-2xl overflow-hidden border shadow-sm bg-white hover:shadow-md transition w-32 sm:w-36 md:w-40 lg:w-44 aspect-[3/4] flex-shrink-0"
+    >
+      <Image
+        src={`/gallery/${img}.jpg`}
+        alt={`Example ${i + 1}`}
+        width={300}
+        height={400}
+        className="w-full h-full object-cover"
+        loading="lazy"
+      />
+    </div>
+  ))}
+</div>
+
 
       {/* ===== Waitlist Form ===== */}
       <div className="flex flex-col items-center justify-center gap-1 w-full mt-10 max-w-[90%] sm:max-w-2xl text-center">
