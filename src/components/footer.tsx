@@ -4,30 +4,21 @@ export default function Footer() {
   return (
     <footer className="flex flex-col justify-center items-center gap-4 pb-4">
       <div className="flex flex-row justify-between">
-        <ul className="flex flex-row gap-4">
-          <li className="dark:text-muted-foreground dark:hover:text-foreground cursor-pointer">
-            Built using Next.js 15
-          </li>
+        <ul className="flex flex-row flex-wrap gap-4 justify-center">
           <li className="dark:text-muted-foreground dark:hover:text-foreground">
-            •
+            <Link href="/privacy">Privacy Policy</Link>
           </li>
+          <li className="dark:text-muted-foreground">•</li>
           <li className="dark:text-muted-foreground dark:hover:text-foreground">
-            <Link href="https://github.com/idee8/waitly">
-              Get this template
-            </Link>
-          </li>
-          <li className="dark:text-muted-foreground dark:hover:text-foreground">
-            •
-          </li>
-          <li className="dark:text-muted-foreground dark:hover:text-foreground cursor-pointer">
-            <Link href="https://kofi.com/idee8">Become a Sponsor</Link>
+            <Link href="/terms">Terms of Service</Link>
           </li>
         </ul>
       </div>
+
       <div>
         <p className="text-sm text-muted-foreground">
           &copy; {new Date().getFullYear()} Crafted by{" "}
-          <Link href="https://idee8.agency" className="font-semibold text-foreground">Idee8</Link>
+          <span className="font-semibold text-foreground">RoastYourFriend</span>
         </p>
       </div>
     </footer>

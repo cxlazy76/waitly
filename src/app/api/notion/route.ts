@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
-
 import { notion } from "~/lib/notion";
 
 export async function POST(request: Request) {
   const body = await request.json();
+
   try {
     const response = await notion.pages.create({
       parent: {
@@ -11,16 +11,11 @@ export async function POST(request: Request) {
       },
       properties: {
         Email: {
-          type: "email",
-          email: body?.email,
-        },
-        Name: {
-          type: "title",
           title: [
             {
               type: "text",
               text: {
-                content: body?.name,
+                content: body?.email,
               },
             },
           ],
@@ -28,18 +23,12 @@ export async function POST(request: Request) {
       },
     });
 
-    if (!response) {
-      return NextResponse.json(
-        { error: "Failed to add email to Notion" },
-        { status: 500 }
-      );
-    }
-
     return NextResponse.json(
       { message: "Email added to Notion", success: true },
       { status: 200 }
     );
   } catch (error) {
+    console.error("❌ Failed to add email to Notion:", error);
     return NextResponse.json(
       { error: "Failed to add email to Notion", success: false },
       { status: 500 }
