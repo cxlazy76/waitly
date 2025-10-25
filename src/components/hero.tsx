@@ -26,22 +26,23 @@ export default function Hero({ waitlistPeople }: { waitlistPeople: number }) {
         </div>
       </div>
 
-      {/* ===== Title & Subtitle ===== */}
-      <div className="flex flex-col items-center justify-center text-center max-w-2xl">
-        <h2 className="text-4xl font-bold text-foreground leading-tight max-w-[90%] sm:max-w-none mb-2">
-          Create personalised AI videos in seconds
-        </h2>
+{/* ===== Title & Subtitle ===== */}
+<div className="flex flex-col items-center justify-center text-center max-w-2xl relative z-10">
+  <h2 className="text-4xl font-bold text-foreground leading-tight max-w-[90%] sm:max-w-none mb-2">
+    Create personalised AI videos in seconds
+  </h2>
+  <p className="text-base text-muted-foreground max-w-[85%] sm:max-w-md mt-0">
+    {isSuccess
+      ? "You've successfully secured your spot. We’ll hit you up the moment it’s your turn to dive in."
+      : "You pick a character → type a message → we generate a video."}
+  </p>
+</div>
 
-        <p className="text-base text-muted-foreground max-w-[85%] sm:max-w-md mt-0">
-          {isSuccess
-            ? "You've successfully secured your spot. We’ll hit you up the moment it’s your turn to dive in."
-            : "You pick a character → type a message → we generate a video."}
-        </p>
-      </div>
 
       {/* ===== Image Cards Section ===== */}
 {/* ===== Image Cards Section ===== */}
-<div className="mt-8 flex flex-wrap justify-center items-start gap-4 sm:gap-5 md:gap-6 w-full max-w-6xl px-2">
+<div className="mt-8 flex flex-wrap justify-center items-start gap-4 sm:gap-5 md:gap-6 w-full max-w-6xl px-2 relative z-0">
+
   {["one", "two", "three", "four", "five"].map((img, i) => (
     <div
       key={i}
