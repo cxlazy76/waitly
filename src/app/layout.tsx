@@ -64,10 +64,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full bg-white" suppressHydrationWarning>
-  <body
-    className={`${interTight.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen bg-white text-black`}
-  >
-
+      <body
+        className={`${interTight.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen bg-white text-black`}
+      >
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           <Header />
           <Toaster />

@@ -33,7 +33,7 @@ export default function Hero({ waitlistPeople }: { waitlistPeople: number }) {
   ));
 
   return (
-    <div className="flex flex-col items-center justify-start px-4">
+  <div className="flex flex-col items-center justify-start px-4 mt-8 sm:mt-10">
       {/* ===== Availability Badge ===== */}
       <div className="flex flex-col items-center justify-center gap-6 mb-6">
         <div className="flex items-center gap-3 rounded-full border border-border px-4 py-1 relative">
@@ -60,26 +60,37 @@ export default function Hero({ waitlistPeople }: { waitlistPeople: number }) {
       </div>
 
       {/* ===== Image Cards Section ===== */}
-      {/* Mobile: horizontal scroll (no snap), wrapper doesn't enlarge page */}
-      <div className="md:hidden w-full mt-8 overflow-x-hidden">
-        <div
-          className="
-          slider
-          flex gap-3
-          overflow-x-auto overflow-y-hidden
-          overscroll-x-contain
-          py-1 px-4
-        "
-          aria-label="Characters"
-          role="region"
-        >
-          {cards.map((card, i) => (
-            <div key={i} className="shrink-0 min-w-[180px] sm:min-w-[200px]">
-              {card}
-            </div>
-          ))}
+      {/* MOBILE – diagnostic (no fades) */}
+<div className="md:hidden w-full mt-8">
+  <div className="relative overflow-hidden bg-background">
+    <div
+      className="
+        relative z-0 flex gap-3
+        overflow-x-auto overflow-y-hidden
+        overscroll-x-contain ps-4 pe-4 py-1
+        scrollbar-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
+      "
+      aria-label="Characters"
+      role="region"
+    >
+      {cards.map((card, i) => (
+        <div key={i} className="shrink-0 min-w-[180px] sm:min-w-[200px]">
+          {card}
         </div>
-      </div>
+      ))}
+      <div aria-hidden className="shrink-0 w-2" />
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
 
       {/* Desktop: normal layout */}
       <div className="hidden md:flex flex-wrap justify-center items-start gap-4 sm:gap-5 md:gap-6 w-full max-w-6xl px-2 relative z-0 mt-8">

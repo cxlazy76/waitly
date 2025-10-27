@@ -7,16 +7,9 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 
 export default function Header() {
-	const scrolled = useScroll();
-
-	return (
-		<header
-			className={cn(
-				"py-4 flex flex-row gap-2 justify-between items-center md:px-10 sm:px-6 px-4 sticky top-0 z-50",
-				scrolled &&
-					"bg-background/50 md:bg-transparent md:backdrop-blur-none backdrop-blur-sm",
-			)}
-		>
-		</header>
-	);
+  return (
+    <header className="sticky top-0 z-50 w-full bg-white shadow-sm">
+      {/* keep the rest of your existing header content exactly as is */}
+    </header>
+  );
 }

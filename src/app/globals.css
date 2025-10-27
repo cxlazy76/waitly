@@ -132,3 +132,8 @@
   }
 }
 
+/* Prevent any accidental backdrop blur leaking from header or its children */
+.header-unblur, .header-unblur * {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
