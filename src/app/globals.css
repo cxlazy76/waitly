@@ -120,3 +120,14 @@
     @apply bg-background text-foreground font-sans;
   }
 }
+
+@layer utilities {
+  /* Hide scrollbar for the mobile carousel */
+  .slider::-webkit-scrollbar {
+    display: none;
+  }
+  .slider {
+    -ms-overflow-style: none; /* IE/Edge */
+    scrollbar-width: none;    /* Firefox */
+  }
+}

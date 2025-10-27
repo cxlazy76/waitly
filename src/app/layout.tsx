@@ -63,11 +63,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full" suppressHydrationWarning>
-      <body
-        className={`${interTight.variable} ${geistMono.variable} antialiased flex flex-col h-full bg-[#09090B] text-white`}
-      >
-        <ThemeProvider>
+    <html lang="en" className="h-full bg-white" suppressHydrationWarning>
+  <body
+    className={`${interTight.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen bg-white text-black`}
+  >
+
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           <Header />
           <Toaster />
           {children}
