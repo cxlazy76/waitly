@@ -10,7 +10,7 @@ export default function Hero({ waitlistPeople }: { waitlistPeople: number }) {
   const year = useMemo(() => new Date().getFullYear(), []);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  // Shared card content for both mobile + desktop (card itself has fixed width per breakpoint)
+  // Shared card content for both mobile + desktop
   const cards = ["one", "two", "three", "four", "five"].map((img, i) => (
     <div
       key={i}
@@ -60,35 +60,29 @@ export default function Hero({ waitlistPeople }: { waitlistPeople: number }) {
 
       {/* ===== Image Cards Section ===== */}
 
-      {/* Mobile: horizontal scroll + snap (sizes match, smaller gaps) */}
-      <div className="md:hidden -mx-4 mt-8">
+      {/* Mobile: horizontal scroll (no snap), wrapper doesn't enlarge page */}
+      <div className="md:hidden w-full mt-8 overflow-x-hidden">
         <div
-  className="
-    slider
-    flex gap-3
-    overflow-x-auto overflow-y-hidden
-    touch-pan-x overscroll-x-contain
-    py-1 px-4 pr-6
-  "
-  aria-label="Characters"
-  role="region"
->
-
+          className="
+            slider slider--fade
+            flex gap-3
+            overflow-x-auto overflow-y-hidden
+            touch-pan-x overscroll-x-contain
+            py-1 px-4
+            w-full
+          "
+          aria-label="Characters"
+          role="region"
+        >
           {cards.map((card, i) => (
-            <div
-              key={i}
-              className="
-                shrink-0 snap-start
-                min-w-[180px] sm:min-w-[200px]
-              "
-            >
+            <div key={i} className="shrink-0 min-w-[180px] sm:min-w-[200px]">
               {card}
             </div>
           ))}
         </div>
       </div>
 
-      {/* Desktop: original flex layout */}
+      {/* Desktop: normal layout */}
       <div className="hidden md:flex flex-wrap justify-center items-start gap-4 sm:gap-5 md:gap-6 w-full max-w-6xl px-2 relative z-0 mt-8">
         {cards}
       </div>
