@@ -122,12 +122,13 @@
 }
 
 @layer utilities {
-  /* Hide scrollbar for the mobile carousel */
-  .slider::-webkit-scrollbar {
-    display: none;
-  }
-  .slider {
-    -ms-overflow-style: none; /* IE/Edge */
-    scrollbar-width: none;    /* Firefox */
+  .slider::-webkit-scrollbar { display: none; }
+  .slider { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* soft edge fade */
+  .slider--fade {
+    -webkit-mask-image: linear-gradient(to right, transparent 0, black 24px, black calc(100% - 24px), transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0, black 24px, black calc(100% - 24px), transparent 100%);
   }
 }
+

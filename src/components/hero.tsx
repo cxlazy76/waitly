@@ -64,13 +64,12 @@ export default function Hero({ waitlistPeople }: { waitlistPeople: number }) {
       <div className="md:hidden w-full mt-8 overflow-x-hidden">
         <div
           className="
-            slider slider--fade
-            flex gap-3
-            overflow-x-auto overflow-y-hidden
-            touch-pan-x overscroll-x-contain
-            py-1 px-4
-            w-full
-          "
+          slider slider--fade
+          flex gap-3
+          overflow-x-auto overflow-y-hidden
+          overscroll-x-contain
+          py-1 px-4
+        "
           aria-label="Characters"
           role="region"
         >
