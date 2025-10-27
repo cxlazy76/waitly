@@ -5,6 +5,7 @@ import { useMemo, useState } from "react";
 import Countdown from "./countdown";
 import People from "./people";
 import Form from "./form";
+import VideoPreview from "~/components/VideoPreview"; // ✅ Mux video player
 
 export default function Hero({ waitlistPeople }: { waitlistPeople: number }) {
   const year = useMemo(() => new Date().getFullYear(), []);
@@ -54,17 +55,16 @@ export default function Hero({ waitlistPeople }: { waitlistPeople: number }) {
         <p className="text-base text-muted-foreground max-w-[85%] sm:max-w-md mt-0">
           {isSuccess
             ? "You've successfully secured your spot. We’ll hit you up the moment it’s your turn to dive in."
-            : "You pick a character → type a message → we generate a video."}
+            : "Pick a character → Type text → Generate a video."}
         </p>
       </div>
 
       {/* ===== Image Cards Section ===== */}
-
       {/* Mobile: horizontal scroll (no snap), wrapper doesn't enlarge page */}
       <div className="md:hidden w-full mt-8 overflow-x-hidden">
         <div
           className="
-          slider slider--fade
+          slider
           flex gap-3
           overflow-x-auto overflow-y-hidden
           overscroll-x-contain
@@ -87,14 +87,14 @@ export default function Hero({ waitlistPeople }: { waitlistPeople: number }) {
       </div>
 
       {/* ===== Waitlist Form ===== */}
-<div className="flex flex-col items-center justify-center gap-3 w-full mt-10 max-w-[90%] sm:max-w-2xl text-center">
-  <Form onSuccessChange={setIsSuccess} />
-  <p className="text-sm text-muted-foreground opacity-80 mt-1">
-    Get notified when this is available
-  </p>
-</div>
+      <div className="flex flex-col items-center justify-center gap-3 w-full mt-10 max-w-[90%] sm:max-w-2xl text-center">
+        <Form onSuccessChange={setIsSuccess} />
+        <p className="text-sm text-muted-foreground opacity-80 mt-1">
+          Get notified when this is available
+        </p>
+      </div>
 
-
+      {/* ===== Waitlist People ===== */}
       <div className="flex items-center justify-center gap-2 max-w-[90%] sm:max-w-2xl mt-6">
         <People count={waitlistPeople} />
       </div>
@@ -102,6 +102,15 @@ export default function Hero({ waitlistPeople }: { waitlistPeople: number }) {
       {/* ===== Countdown Section ===== */}
       <div className="max-w-[90%] sm:max-w-2xl text-center">
         <Countdown period={new Date("2025-11-15")} />
+      </div>
+
+      {/* ===== Video Preview Section ===== */}
+      <div className="mt-10 mb-20 w-full flex justify-center">
+        <VideoPreview
+          src="https://stream.mux.com/Wp1Qg01zEK1AEolUjzgr1GvcBVsZkUm21Hmy6XbZGswM.m3u8"
+          poster="https://image.mux.com/Wp1Qg01zEK1AEolUjzgr1GvcBVsZkUm21Hmy6XbZGswM/thumbnail.jpg?time=0.5&width=1080&fit_mode=crop"
+          caption="Check out our video"
+        />
       </div>
     </div>
   );

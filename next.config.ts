@@ -28,6 +28,17 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+
+  // ✅ Add this section below:
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "image.mux.com",
+        pathname: "/**",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
