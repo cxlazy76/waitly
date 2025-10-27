@@ -87,12 +87,13 @@ export default function Hero({ waitlistPeople }: { waitlistPeople: number }) {
       </div>
 
       {/* ===== Waitlist Form ===== */}
-      <div className="flex flex-col items-center justify-center gap-1 w-full mt-10 max-w-[90%] sm:max-w-2xl text-center">
-        <Form onSuccessChange={setIsSuccess} />
-        <p className="text-sm text-muted-foreground opacity-80 mt-1">
-          Enter your e-mail to get notified when we launch.
-        </p>
-      </div>
+<div className="flex flex-col items-center justify-center gap-3 w-full mt-10 max-w-[90%] sm:max-w-2xl text-center">
+  <Form onSuccessChange={setIsSuccess} />
+  <p className="text-sm text-muted-foreground opacity-80 mt-1">
+    Get notified when this is available
+  </p>
+</div>
+
 
       <div className="flex items-center justify-center gap-2 max-w-[90%] sm:max-w-2xl mt-6">
         <People count={waitlistPeople} />

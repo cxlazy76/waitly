@@ -75,25 +75,15 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
               particleCount: 100,
               spread: 70,
               origin: { y: 0.6 },
-              colors: [
-                "#ff0000",
-                "#00ff00",
-                "#0000ff",
-                "#ffff00",
-                "#ff00ff",
-                "#00ffff",
-              ],
+              colors: ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff", "#00ffff"],
             });
           }, 100);
           return "Thank you for joining the waitlist 🎉";
         },
         error: (error) => {
-          if (error === "Rate limited")
-            return "You're doing that too much. Please try again later";
-          if (error === "Email sending failed")
-            return "Failed to send email. Please try again 😢.";
-          if (error === "Notion insertion failed")
-            return "Failed to save your details. Please try again 😢.";
+          if (error === "Rate limited") return "You're doing that too much. Please try again later";
+          if (error === "Email sending failed") return "Failed to send email. Please try again 😢.";
+          if (error === "Notion insertion failed") return "Failed to save your details. Please try again 😢.";
           return "An error occurred. Please try again 😢.";
         },
       });
@@ -134,32 +124,31 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
           <motion.form
             key="email-form"
             onSubmit={handleSubmit}
-            className="relative w-full flex justify-center"
+            className="relative w-full"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            {/* ✅ Fixed: one-row layout, no overlap */}
-            <div className="flex w-full items-center justify-center gap-2 max-w-[90%] sm:max-w-lg mx-auto">
-
+            {/* Mobile: stacked full-width; ≥sm: row */}
+            <div className="flex flex-col sm:flex-row w-full items-stretch justify-center gap-3 max-w-[90%] sm:max-w-lg mx-auto">
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Email"
-                className="flex-grow bg-background border border-border text-foreground px-3 py-2 rounded-[10px] focus:outline-1 transition-all duration-300 focus:outline-offset-2 focus:outline-[#e5ff00] text-sm"
+                className="w-full sm:flex-1 bg-background border border-border text-foreground px-4 py-3 rounded-[10px] focus:outline-1 transition-all duration-300 focus:outline-offset-2 focus:outline-[#e5ff00] text-base"
                 disabled={loading}
                 required
               />
               <button
                 type="submit"
-                className="font-semibold bg-[#e5ff00] flex justify-center items-center cursor-pointer text-black px-4 py-2 rounded-[10px] hover:bg-opacity-90 transition-all disabled:opacity-50 text-sm whitespace-nowrap"
+                className="w-full sm:w-auto font-semibold bg-[#e5ff00] flex justify-center items-center cursor-pointer text-black px-4 py-3 rounded-[10px] hover:bg-opacity-90 transition-all disabled:opacity-50 text-base"
                 disabled={loading}
               >
                 {loading ? (
                   <span className="flex items-center">
                     <svg
-                      className="animate-spin -ml-1 mr-2 h-4 w-4 text-black"
+                      className="animate-spin -ml-1 mr-2 h-5 w-5 text-black"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
