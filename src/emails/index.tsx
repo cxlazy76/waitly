@@ -14,15 +14,15 @@ import {
 } from "@react-email/components";
 
 // ---- Brand tokens (match your waitlist page) ----
-const ACCENT = "#E5FF00";      // neon yellow
+const ACCENT = "#E5FF00";      // neon yellow (kept if you need later)
 const FG = "#111111";          // primary text
 const MUTED = "#6B7280";       // gray text
 const BG = "#FFFFFF";          // background
 const CARD_BG = "#FFFFFF";
 const BORDER = "#E5E7EB";
 
-// Use an ABSOLUTE URL for email images:
-const HERO_URL = "http://localhost:3000/email/hero.jpg"; // <-- your image URL
+// Use an ABSOLUTE, PUBLIC, HTTPS URL (no localhost!)
+const HERO_URL = "https://www.roastyourfriend.com/email/hero.jpg";
 
 const WaitlistEmail = () => {
   const currentYear = new Date().getFullYear();
@@ -31,7 +31,7 @@ const WaitlistEmail = () => {
     <Html>
       <Tailwind>
         <Head>
-          <title>Welcome to Roast Your Friend</title>
+          <title>Welcome to RoastYourFriend</title>
           <Preview>
             You’re on the waitlist! We’ll let you know as soon as it’s ready 🎉
           </Preview>
@@ -55,18 +55,20 @@ const WaitlistEmail = () => {
                   src={HERO_URL}
                   alt="RoastYourFriend"
                   width={640}
+                  height={320} // adjust if your hero is taller/shorter
                   className="block w-full"
+                  style={{ display: "block", width: "100%", height: "auto", border: 0 }}
                 />
               </Section>
             )}
 
-            {/* === Header === */}
+            {/* Header */}
             <Section className="px-[28px] pt-[28px] pb-[8px] text-center">
               <Text
                 className="m-0 text-[28px] font-bold leading-tight text-center"
                 style={{ color: FG }}
               >
-                Welcome to <span style={{ color: FG }}>Roast-Your-Friend</span>
+                Welcome to <span style={{ color: FG }}>RoastYourFriend</span>
               </Text>
 
               <Text
@@ -79,7 +81,7 @@ const WaitlistEmail = () => {
               <Hr className="my-[16px]" style={{ borderColor: BORDER }} />
             </Section>
 
-            {/* === Main Content === */}
+            {/* Main content */}
             <Section className="px-[28px] pb-[8px] text-center">
               <Text className="m-0 mb-[12px] text-[16px] text-center" style={{ color: FG }}>
                 Thanks for joining our early community!
@@ -91,7 +93,7 @@ const WaitlistEmail = () => {
 
             <Hr className="my-[16px]" style={{ borderColor: BORDER }} />
 
-            {/* === Footer === */}
+            {/* Footer */}
             <Section className="px-[28px] pb-[24px] text-center">
               <Text className="m-0 text-[12px] text-center" style={{ color: MUTED }}>
                 © {currentYear} RoastYourFriend. All rights reserved.
