@@ -50,7 +50,7 @@ export default function Hero({ waitlistPeople }: { waitlistPeople: number }) {
       {/* ===== Title & Subtitle ===== */}
       <div className="flex flex-col items-center justify-center text-center max-w-2xl relative z-10">
         <h2 className="text-4xl font-bold text-foreground leading-tight max-w-[90%] sm:max-w-none mb-2">
-          Create funny AI videos in seconds
+          Prank your friend with AI characters
         </h2>
         <p className="text-base text-muted-foreground max-w-[85%] sm:max-w-md mt-0">
           {isSuccess
