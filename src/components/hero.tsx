@@ -11,23 +11,26 @@ export default function Hero({ waitlistPeople }: { waitlistPeople: number }) {
   const year = useMemo(() => new Date().getFullYear(), []);
   const [isSuccess, setIsSuccess] = useState(false);
 
+
   // Shared card content for both mobile + desktop
-  const cards = ["one", "two", "three", "four", "five"].map((img, i) => (
-    <div
-      key={i}
-      className="
-        rounded-2xl overflow-hidden border shadow-sm bg-white hover:shadow-md transition
-        w-[180px] sm:w-[200px] md:w-40 lg:w-44
-        aspect-[3/4]
-      "
-    >
+  const imagePaths = [
+    "/gallery/one.avif",
+    "/gallery/two.avif",
+    "/gallery/three.avif",
+    "/gallery/four.avif",
+    "/gallery/five.avif",
+  ];
+
+  const cards = imagePaths.map((img, i) => (
+    <div key={i} className="rounded-2xl overflow-hidden border shadow-sm bg-white hover:shadow-md transition w-[180px] sm:w-[200px] md:w-40 lg:w-44 aspect-[3/4]">
       <Image
-        src={`/gallery/${img}.jpg`}
+        src={img}
         alt={`Example ${i + 1}`}
         width={300}
         height={400}
-        className="w-full h-full object-cover"
+        placeholder="empty"
         loading="lazy"
+        className="w-full h-full object-cover"
       />
     </div>
   ));
